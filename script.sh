@@ -38,10 +38,10 @@ fi
  if [ -d "aplicacao" ]
         then
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)A pasta 'mind-core' já existe. Atualizando..."
-            git pull
 			sleep 2
 
-        cd aplicacao/target
+        cd aplicacao
+		cd target
 
         chmod 777 login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
         sleep 2
