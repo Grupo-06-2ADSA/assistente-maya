@@ -27,7 +27,7 @@ else
 	fi 
 fi 
 
-  echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Posso instalar a MindCore pra você? (Y/n)"
+  echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Posso instalar a aplicação MindCore pra você? (Y/n)"
     read installMindCore
     if [ "$installMindCore" == "Y" ]
     then
@@ -60,5 +60,3 @@ fi
             sleep 2
             exit 0
 		fi
-	fi
-fi
