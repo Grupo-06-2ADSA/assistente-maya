@@ -15,7 +15,7 @@ java --version
 
 if [ $? = 0 ]; 
 	then 
-	echo “java instalado” 
+	echo java instalado
 else 
 	echo java não instalado 
 	echo gostaria de instalar o java? [s/n]” 
@@ -37,7 +37,7 @@ fi
 
  if [ -d "aplicacao" ]
         then
-            echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)A pasta 'mind-core' já existe. Atualizando..."
+            echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)A pasta 'Aplicação' está ok, indo até ela"
 			sleep 2
 
         cd aplicacao
@@ -56,17 +56,9 @@ fi
             sleep 2
             java -jar login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
 		else
-            echo "$(tput setaf 5)[Instalador DataSync]: $(tput sgr0)$(tput setaf 10)Você pode iniciar a aplicação quando desejar! Até logo!"
+            echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Você pode iniciar a aplicação quando desejar! Até logo!"
             sleep 2
             exit 0
 		fi
- else
-        echo "$(tput setaf 5)[Instalador DataSync]: $(tput sgr0)$(tput setaf 10)Tudo bem, você pode tentar instalar quando quiser. Até logo!"
-        sleep 2
-        exit 0
-    fi
-else
-    echo "$(tput setaf 5)[Instalador DataSync]: $(tput sgr0)$(tput setaf 10)Você pode voltar aqui quando quiser instalar. Até logo!"
-    sleep 2
-    exit 0
+	fi
 fi
