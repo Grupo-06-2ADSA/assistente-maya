@@ -33,7 +33,7 @@ fi
     then
         echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Irei iniciar a instalação..."
         sleep 2
-
+	fi
 
  if [ -d "aplicacao" ]
         then
