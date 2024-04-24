@@ -33,14 +33,15 @@ fi
     then
         echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Irei iniciar a instalação..."
         sleep 2
-
+	fi
 
  if [ -d "aplicacao" ]
         then
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)A pasta 'mind-core' já existe. Atualizando..."
             git pull
 			sleep 2
-
+		fi
+	fi		
         cd aplicacao/target
 
         chmod 777 login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
@@ -56,3 +57,12 @@ fi
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Iniciando a aplicação... Até logo!"
             sleep 2
             java -jar login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+	
+		else
+            echo "$(tput setaf 5)[Instalador DataSync]: $(tput sgr0)$(tput setaf 10)Você pode iniciar a aplicação quando desejar! Até logo!"
+            sleep 2
+            exit 0
+		fi
+	fi
+fi		
