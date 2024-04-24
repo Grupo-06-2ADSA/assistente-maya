@@ -56,7 +56,6 @@ fi
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Iniciando a aplicação... Até logo!"
             sleep 2
             java -jar login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
-		
 		else
             echo "$(tput setaf 5)[Instalador DataSync]: $(tput sgr0)$(tput setaf 10)Você pode iniciar a aplicação quando desejar! Até logo!"
             sleep 2
