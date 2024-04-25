@@ -18,34 +18,30 @@ if [ $? = 0 ];
 	echo java instalado
 else 
 	echo java não instalado 
-	echo gostaria de instalar o java? [s/n]” 
 
-	read get 
-	if [ \“$get\” == \“s\” ]; 
-		then 
-		sudo apt install openjdk-17-jre -y 
-	fi 
+  echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0) $(tput setaf 10)Instalando java..."
+
+	  sudo apt install openjdk-17-jre -y
+
+  echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0) $(tput setaf 10)java instalado com sucesso"
 fi 
 
-  echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Posso instalar a aplicação MindCore pra você? (Y/n)"
-    read installMindCore
-    if [ "$installMindCore" == "Y" ]
-    then
-        echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Irei iniciar a instalação..."
-        sleep 2
-	fi
+  
+  echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Irei iniciar a instalação do nosso aplicativo"
+   sleep 2
+	
 
  if [ -d "aplicacao" ]
         then
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)A pasta 'Aplicação' está ok, indo até ela"
-			sleep 2
+			      sleep 2
 
         cd aplicacao
 
         chmod 777 login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
         sleep 2
 
-        echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Obrigado por instalar a nossa aplicação!"
+        echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Aplicação concluida!! obrigado por instalar a nossa aplicação!"
         sleep 2
 
         echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Você quer executar a aplicação agora? (Y/n)"
