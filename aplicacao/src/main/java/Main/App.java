@@ -8,8 +8,11 @@ import Models.*;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import com.github.britooo.looca.api.group.janelas.Janela;
+import com.github.britooo.looca.api.group.janelas.JanelaGrupo;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
+import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 
@@ -45,6 +48,8 @@ public class App {
         DiscoGrupo disco = looca.getGrupoDeDiscos();
         Processador processador = looca.getProcessador();
         Rede rede = looca.getRede();
+        ProcessoGrupo grupoDeProcessos = looca.getGrupoDeProcessos  ();
+        JanelaGrupo grupoDeJanelas = looca.getGrupoDeJanelas();
 
         // Sistemas Operacional
         String nomeSO = sistema.getSistemaOperacional();
@@ -100,12 +105,15 @@ public class App {
             System.out.println("Nome: " + nomeCpu);
             System.out.println("Uso: " + usoCPU);
 
-        // Máquina
-        String hostName = rede.getParametros().getHostName();
-        String ipv4 = String.valueOf((rede.getGrupoDeInterfaces().getInterfaces().get(4).getEnderecoIpv4()));
-            System.out.println("------ Máquina ------");
-            System.out.println("Hostname: " + hostName);
-            System.out.println("IPv4: " + ipv4);
+        List<Janela> janela1 = grupoDeJanelas.getJanelas();
+        Integer totalJanelas = grupoDeJanelas.getTotalJanelas();
+        System.out.println("------ Janelas ------");
+        System.out.println("Total de janelas: " + totalJanelas);
+
+        for (Janela janela : janela1) {
+            System.out.println("Título: " + janela.getTitulo());
+            System.out.println("Pid: " + janela.getPid());
+        }
 
 //        Computador computador = new Computador(hostName, ipv4);
 //        SistemaOperacional sistemaOperacional = new SistemaOperacional(nomeSO, tempoAtivdadeSO);
