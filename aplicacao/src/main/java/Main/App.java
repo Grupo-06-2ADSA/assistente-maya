@@ -105,12 +105,14 @@ public class App {
             System.out.println("Nome: " + nomeCpu);
             System.out.println("Uso: " + usoCPU);
 
+            // Janelas
         List<Janela> janela1 = grupoDeJanelas.getJanelas();
         Integer totalJanelas = grupoDeJanelas.getTotalJanelas();
         System.out.println("------ Janelas ------");
         System.out.println("Total de janelas: " + totalJanelas);
 
         for (Janela janela : janela1) {
+            System.out.println("ID: " + janela.getJanelaId());
             System.out.println("Título: " + janela.getTitulo());
             System.out.println("Pid: " + janela.getPid());
         }
