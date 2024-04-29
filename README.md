@@ -2,6 +2,9 @@
 Bem vindo(a) a MindCore, vamos te auxiliar a fazer a instalação da nossa aplicação via CLI do Linux 💻
 
 ### **Passo a passo para a execução do arquivo shell script**
+
+> [!IMPORTANT]
+> O script precisa ser executado por um usuário do grupo sudo
   
   1. Coloque a extensão .sh no nome do arquivo shell script
 
