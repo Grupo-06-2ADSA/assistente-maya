@@ -10,11 +10,11 @@ Bem vindo(a) a MindCore, vamos te auxiliar a fazer a instalação da nossa aplic
   3. Altere a sua permissão para que fique executável
   
   ```
-  chmod +x <nome-do-arquivo>
+  chmod +x script.sh
   ```
   4. Digite no terminal, no diretório em que o shell script se encontra
   ```
-  ./nome-do-arquivo.sh
+  ./script.sh
   ```
  🏁 E assim o script estará rodando com sucesso!
  
