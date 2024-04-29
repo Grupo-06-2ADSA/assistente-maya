@@ -16,7 +16,7 @@ java --version
 if [ $? = 0 ]; 
 	then 
 	echo java instalado
-else 
+  else 
 	echo java não instalado 
 
   echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0) $(tput setaf 10)Instalando java..."
@@ -30,8 +30,8 @@ fi
   echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Irei iniciar a instalação do nosso aplicativo"
    sleep 2
 	
-
- if [ -d "aplicacao" ]
+  
+if [ -d "aplicacao" ]
         then
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)A pasta 'Aplicação' está ok, indo até ela"
 			      sleep 2
@@ -47,14 +47,13 @@ fi
         echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Você quer executar a aplicação agora? (Y/n)"
         read execMindCore
         if [ "$execMindCore" == "Y" ]
-        then
+          then
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Iniciando a aplicação... Até logo!"
             sleep 2
             java -jar login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar
-		else
+		      else
             echo "$(tput setaf 5)[Instalador MindCore]: $(tput sgr0)$(tput setaf 10)Você pode iniciar a aplicação quando desejar! Até logo!"
             sleep 2
             exit 0
-		fi
-  fi
+		    fi
 fi
