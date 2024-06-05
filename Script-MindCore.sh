@@ -1,4 +1,4 @@
-readonly USERNAME=root
+readonly USERNAME=mindcore
 readonly PASSWORD=mindcore123grupo6
 readonly DATABASE=MindCore
 
@@ -118,7 +118,7 @@ read email
 echo "Digite a senha"
 read senha
 
-query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT idUsuario, email, senha FROM usuario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;'")
+query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT idFunc, email, senha FROM Funcionario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;'")
 
 if [ -z "$query" ]; then
 echo "Usuário não encontrados"
