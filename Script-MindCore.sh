@@ -1,3 +1,7 @@
+readonly USERNAME=root
+readonly PASSWORD=mindcore123grupo6
+readonly DATABASE=bd-mindcore
+
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10)Olá, eu sou a Maya, sua assistente virtual e vou te ajudar a iniciar nosso aplicativo!!"
 sleep 2
 
@@ -55,6 +59,8 @@ else
 fi
 
 
+
+
 IMAGE_DB="helosalgado/atividadeso:v1"
 IMAGE_APP="helosalgado/atividadeso:app"
 
@@ -99,4 +105,26 @@ sleep 2
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Iniciando aplicação..."
 sleep 2
 
-sudo docker-compose up -d
+sudo docker-compose up
+
+docker start bd-mindcore > /dev/null
+
+LOGIN=0
+touch docker.env
+while [ "$LOGIN" -eq 0 ]; do
+echo "Digite o email"
+read email
+
+echo "Digite a senha"
+read senha
+
+query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT idUsuario, email, senha FROM usuario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;'")
+
+if [ -z "$query" ]; then
+echo "Usuário não encontrados"
+
+else
+
+echo "Login efetuado com sucesso"
+LOGIN=1
+sleep 3
