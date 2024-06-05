@@ -1,6 +1,6 @@
 readonly USERNAME=root
 readonly PASSWORD=mindcore123grupo6
-readonly DATABASE=bd-mindcore
+readonly DATABASE=MindCore
 
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10)Olá, eu sou a Maya, sua assistente virtual e vou te ajudar a iniciar nosso aplicativo!!"
 sleep 2
