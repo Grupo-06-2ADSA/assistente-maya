@@ -153,7 +153,7 @@ main(){
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
             docker start javaApp
-            java -cp "$CLASSES_DIR" Main.App "$DOCKER_ENV_PATH"
+            java -cp "$CLASSES_DIR:$(mvn dependency:build-classpath | grep -A 1 "Dependencies classpath:" | tail -n 1)" Main.App "$DOCKER_ENV_PATH"
             break
         else
             echo "Falha no login. Por favor, tente novamente."
