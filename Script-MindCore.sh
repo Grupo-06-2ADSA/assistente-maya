@@ -112,9 +112,6 @@ executar_consulta() {
 
 # Função para verificar se a consulta retornou resultado
 verificar_resultado() {
-    local query_result
-    query_result=$(cat "$DOCKER_ENV_PATH")
-
     if [ -z "$query_result" ]; then
         echo "Usuário não encontrado"
         return 1
