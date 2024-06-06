@@ -102,7 +102,7 @@ sudo docker-compose up -d
 docker start bd-mindcore > /dev/null
 
 LOGIN=0
-DOCKER_ENV_PATH="C:/docker/aplicacao/docker.env"
+DOCKER_ENV_PATH="/home/ubuntu/assistente-maya/docker/aplicacao/docker.env"
 touch "$DOCKER_ENV_PATH"
 while [ "$LOGIN" -eq 0 ]; do
 echo "
@@ -126,7 +126,7 @@ if [ -z "$query" ]; then
 else
   echo "Login efetuado com sucesso"
   LOGIN=1
-  CLASSES_DIR="C:/docker/aplicacao/target-java/classes"
+  CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java"
 
   java --version
 
