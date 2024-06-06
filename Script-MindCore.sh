@@ -102,7 +102,7 @@ docker stop javaApp
 sudo docker start bd-mindcore > /dev/null
 
 DOCKER_ENV_PATH="docker/aplicacao/docker.txt"
-CLASSES_DIR="docker/aplicacao/target-java/classes"
+JAR_PATH="docker/aplicacao/target-java/login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
 touch "$DOCKER_ENV_PATH"
 
@@ -154,8 +154,7 @@ main(){
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
             docker start javaApp
 
-            mvn --version > /dev/null || sudo apt install maven -y
-            java -cp "$CLASSES_DIR:$(mvn dependency:build-classpath | grep -A 1 "Dependencies classpath:" | tail -n 1)" Main.App "$DOCKER_ENV_PATH"
+            java -jar "$JAR_PATH" "$DOCKER_TXT_PATH"            
             break
         else
             echo "Falha no login. Por favor, tente novamente."
