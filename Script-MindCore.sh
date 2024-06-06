@@ -1,4 +1,3 @@
-readonly USERNAME=root
 readonly PASSWORD=mindcore123grupo6
 readonly DATABASE=MindCore
 
@@ -101,8 +100,8 @@ sudo docker-compose up -d
 
 sudo docker start bd-mindcore > /dev/null
 
-DOCKER_ENV_PATH="/home/ubuntu/assistente-maya/docker/aplicacao/docker.txt"
-CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java/classes"
+DOCKER_ENV_PATH="docker/aplicacao/docker.txt"
+CLASSES_DIR="docker/aplicacao/target-java/classes"
 
 touch "$DOCKER_ENV_PATH"
 
@@ -143,6 +142,9 @@ main(){
 
       echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
       read -r senha
+
+      echo "Iniciando bando de dados..."
+      sleep 10
 
       local query_result
         query_result=$(executar_consulta "$email" "$senha")
