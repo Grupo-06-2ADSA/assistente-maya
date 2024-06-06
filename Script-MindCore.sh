@@ -107,7 +107,7 @@ executar_consulta() {
     local senha="$2"
 
     local query_result
-    query_result=$(docker exec bd-mindcore bash -c "export FK_EMPRESA=\$(MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\") && echo \$FK_EMPRESA")
+    query_result=$(docker exec bd-mindcore bash -c "export FK_EMPRESA=\$(MYSQL_PWD=$PASSWORD mysql --batch -u root -D $DATABASE --env \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\") && echo \$FK_EMPRESA")
     echo $query_result
 }
 
