@@ -101,7 +101,7 @@ sudo docker-compose up -d
 
 sudo docker start bd-mindcore > /dev/null
 
-DOCKER_ENV_PATH="/home/ubuntu/assistente-maya/docker/aplicacao/docker.env"
+DOCKER_ENV_PATH="/home/ubuntu/assistente-maya/docker/aplicacao/docker.txt"
 CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java/classes"
 
 touch "$DOCKER_ENV_PATH"
@@ -111,7 +111,7 @@ executar_consulta() {
     local email="$1"
     local senha="$2"
 
-    docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"" > "$DOCKER_ENV_PATH"
+    docker exec -it bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"" > "$DOCKER_ENV_PATH"
 }
 
 # Função para verificar se a consulta retornou resultado
