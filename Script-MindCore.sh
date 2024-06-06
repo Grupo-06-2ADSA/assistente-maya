@@ -99,24 +99,34 @@ sleep 2
 
 sudo docker-compose up -d
 
-#docker start bd-mindcore > /dev/null
+docker start bd-mindcore > /dev/null
 
-#LOGIN=0
-#touch docker.env
-#while [ "$LOGIN" -eq 0 ]; do
-#echo "Digite o email"
-#read email
+LOGIN=0
+touch docker.env
+while [ "$LOGIN" -eq 0 ]; do
+echo "
+    ███╗   ███╗██╗███╗   ██╗██████╗      ██████╗ ██████╗ ██████╗ ███████╗
+    ████╗ ████║██║████╗  ██║██╔══██╗    ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+    ██╔████╔██║██║██╔██╗ ██║██║  ██║    ██║     ██║   ██║██████╔╝█████╗ 
+    ██║╚██╔╝██║██║██║╚██╗██║██║  ██║    ██║     ██║   ██║██╔══██╗██╔══╝ 
+    ██║ ╚═╝ ██║██║██║ ╚████║██████╔╝    ╚██████╗╚██████╔╝██║  ██║███████╗
+    ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+"
+echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o email: "
+read email
 
-#echo "Digite a senha"
-#read senha
+echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
+read senha
 
-#query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT idFunc, email, senha FROM Funcionario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;'")
+query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT fkEmpresa FROM Funcionario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;' > docker.env")
 
-#if [ -z "$query" ]; then
-#echo "Usuário não encontrados"
+if [ ! -s docker.env ]; then
+  echo "Usuário não encontrado"
+else
+  echo "Login efetuado com sucesso"
+  LOGIN=1
 
-#else
+  java -cp login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar Main.App docker.env
+fi
 
-#echo "Login efetuado com sucesso"
-#LOGIN=1
-#sleep 3
+sleep 3
