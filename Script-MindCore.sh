@@ -153,6 +153,8 @@ main(){
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
             docker start javaApp
+
+            mvn --version > /dev/null || sudo apt install maven -y
             java -cp "$CLASSES_DIR:$(mvn dependency:build-classpath | grep -A 1 "Dependencies classpath:" | tail -n 1)" Main.App "$DOCKER_ENV_PATH"
             break
         else
