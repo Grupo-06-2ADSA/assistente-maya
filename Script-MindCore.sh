@@ -101,17 +101,13 @@ docker stop javaApp
 
 sudo docker start bd-mindcore > /dev/null
 
-DOCKER_ENV_PATH="docker/aplicacao/docker.txt"
-JAR_PATH="docker/aplicacao/target-java/login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar"
-
-touch "$DOCKER_ENV_PATH"
-
 # Função para executar consulta no banco de dados
 executar_consulta() {
     local email="$1"
     local senha="$2"
 
-    docker exec -it bd-mindcore bash -c "export FK_EMPRESA=$(MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = \"$email\" AND senha = \"$senha\"' LIMIT 1;\")"
+    local query_result
+    query_result=$(docker exec bd-mindcore bash -c "export FK_EMPRESA=\$(MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\") && echo \$FK_EMPRESA")
 }
 
 # Função para verificar se a consulta retornou resultado
