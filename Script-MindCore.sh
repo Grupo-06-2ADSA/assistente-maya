@@ -101,43 +101,59 @@ sudo docker-compose up -d
 
 sudo docker start bd-mindcore > /dev/null
 
-LOGIN=0
 DOCKER_ENV_PATH="/home/ubuntu/assistente-maya/docker/aplicacao/docker.env"
+CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java/classes"
+
 touch "$DOCKER_ENV_PATH"
-while [ "$LOGIN" -eq 0 ]; do
-echo "
-    ███╗   ███╗██╗███╗   ██╗██████╗      ██████╗ ██████╗ ██████╗ ███████╗
-    ████╗ ████║██║████╗  ██║██╔══██╗    ██╔════╝██╔═══██╗██╔══██╗██╔════╝
-    ██╔████╔██║██║██╔██╗ ██║██║  ██║    ██║     ██║   ██║██████╔╝█████╗ 
-    ██║╚██╔╝██║██║██║╚██╗██║██║  ██║    ██║     ██║   ██║██╔══██╗██╔══╝ 
-    ██║ ╚═╝ ██║██║██║ ╚████║██████╔╝    ╚██████╗╚██████╔╝██║  ██║███████╗
-    ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
-"
-echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o email: "
-read email
 
-echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
-read senha
+# Função para executar consulta no banco de dados
+executar_consulta() {
+    local email="$1"
+    local senha="$2"
+    local query_result
+    query_result=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"")
+    echo "$query_result"
+}
 
-query=$(sudo docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario where email = '$email' AND senha = '$senha' LIMIT 1;\"")
-echo "$query" > docker.env
+# Função para verificar se a consulta retornou resultado
+verificar_resultado() {
+    local query_result="$1"
+    if [ -z "$query_result" ]; then
+        echo "Usuário não encontrado"
+        return 1
+    else
+        echo "Login efetuado com sucesso"
+        return 0
+    fi
+}
 
-if [ -z "$query" ]; then
-  echo "Usuário não encontrado"
-else
-  echo "Login efetuado com sucesso"
-  LOGIN=1
-  CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java/classes"
+main(){
+  while true; do
+      echo "
+          ███╗   ███╗██╗███╗   ██╗██████╗      ██████╗ ██████╗ ██████╗ ███████╗
+          ████╗ ████║██║████╗  ██║██╔══██╗    ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+          ██╔████╔██║██║██╔██╗ ██║██║  ██║    ██║     ██║   ██║██████╔╝█████╗ 
+          ██║╚██╔╝██║██║██║╚██╗██║██║  ██║    ██║     ██║   ██║██╔══██╗██╔══╝ 
+          ██║ ╚═╝ ██║██║██║ ╚████║██████╔╝    ╚██████╗╚██████╔╝██║  ██║███████╗
+          ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+      "
+      echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o email: "
+      read -r email
 
-  java --version
+      echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
+      read -r senha
 
-  if [ $? != 0 ]; then
-    sudo apt install openjdk-17-jre -y
-  fi
+      local query_result
+        query_result=$(executar_consulta "$email" "$senha")
 
-  java -cp "$CLASSES_DIR" Main.App "$DOCKER_ENV_PATH"
+        if verificar_resultado "$query_result"; then
+            java --version > /dev/null || sudo apt install openjdk-17-jre -y
+            java -cp "$CLASSES_DIR" Main.App "$DOCKER_ENV_PATH"
+            break
+        else
+            echo "Falha no login. Por favor, tente novamente."
+        fi
+  done
+}
 
-fi
-
-sleep 3
-done
+main
