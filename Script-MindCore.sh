@@ -111,7 +111,7 @@ executar_consulta() {
     local email="$1"
     local senha="$2"
 
-    docker exec -it bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"" > "$DOCKER_ENV_PATH"
+    docker exec -it bd-mindcore bash -c "export FK_EMPRESA=$(MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\")"
 }
 
 # Função para verificar se a consulta retornou resultado
@@ -144,8 +144,7 @@ main(){
       echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
       read -r senha
 
-      echo "Iniciando bando de dados..."
-      sleep 10
+      sleep 3
 
       local query_result
         query_result=$(executar_consulta "$email" "$senha")
@@ -153,8 +152,6 @@ main(){
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
             docker start javaApp
-
-            java -cp "$JAR_PATH" Main.App "$DOCKER_ENV_PATH"            
             break
         else
             echo "Falha no login. Por favor, tente novamente."
