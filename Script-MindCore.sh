@@ -119,7 +119,8 @@ read email
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
 read senha
 
-query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT fkEmpresa FROM Funcionario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;' > docker.env")
+query=$(sudo docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario where email = '$email' AND senha = '$senha' LIMIT 1;\"")
+echo "$query" > docker.env
 
 if [ -z "$query" ]; then
   echo "Usuário não encontrado"
