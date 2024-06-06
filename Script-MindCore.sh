@@ -1,4 +1,4 @@
-readonly USERNAME=mindcore
+readonly USERNAME=root
 readonly PASSWORD=mindcore123grupo6
 readonly DATABASE=MindCore
 
@@ -102,7 +102,8 @@ sudo docker-compose up -d
 docker start bd-mindcore > /dev/null
 
 LOGIN=0
-touch docker.env
+DOCKER_ENV_PATH="C:/docker/aplicacao/docker.env"
+touch "$DOCKER_ENV_PATH"
 while [ "$LOGIN" -eq 0 ]; do
 echo "
     ███╗   ███╗██╗███╗   ██╗██████╗      ██████╗ ██████╗ ██████╗ ███████╗
@@ -120,13 +121,22 @@ read senha
 
 query=$(sudo docker exec -it bd-mindcore bash -c "MYSQL_PWD="$PASSWORD" mysql --batch -u root -D "$DATABASE" -e 'SELECT fkEmpresa FROM Funcionario where email = \"$email\" AND senha = \"$senha\" LIMIT 1;' > docker.env")
 
-if [ ! -s docker.env ]; then
+if [ -z "$query" ]; then
   echo "Usuário não encontrado"
 else
   echo "Login efetuado com sucesso"
   LOGIN=1
+  CLASSES_DIR="C:/docker/aplicacao/target-java/classes"
 
-  java -cp login-mind-core-1.0-SNAPSHOT-jar-with-dependencies.jar Main.App docker.env
+  java --version
+
+  if [ $? != 0 ]; then
+    sudo apt install openjdk-17-jre -y
+  fi
+
+  java -cp "$CLASSES_DIR" Main.App "$DOCKER_ENV_PATH"
+
 fi
 
 sleep 3
+done
