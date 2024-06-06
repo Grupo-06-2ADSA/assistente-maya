@@ -110,14 +110,15 @@ touch "$DOCKER_ENV_PATH"
 executar_consulta() {
     local email="$1"
     local senha="$2"
-    local query_result
-    query_result=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"")
-    echo "$query_result"
+
+    docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"" > "$DOCKER_ENV_PATH"
 }
 
 # Função para verificar se a consulta retornou resultado
 verificar_resultado() {
-    local query_result="$1"
+    local query_result
+    query_result=$(cat "$DOCKER_ENV_PATH")
+
     if [ -z "$query_result" ]; then
         echo "Usuário não encontrado"
         return 1
