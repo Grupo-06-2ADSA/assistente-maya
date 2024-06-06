@@ -96,7 +96,8 @@ sleep 2
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Iniciando aplicação..."
 sleep 2
 
-sudo docker-compose up -d
+docker-compose up -d
+docker stop javaApp
 
 sudo docker start bd-mindcore > /dev/null
 
@@ -151,6 +152,7 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
+            docker start javaApp
             java -cp "$CLASSES_DIR" Main.App "$DOCKER_ENV_PATH"
             break
         else
