@@ -154,7 +154,7 @@ main(){
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
             docker start javaApp
 
-            java -jar "$JAR_PATH" "$DOCKER_ENV_PATH"            
+            java -cp "$JAR_PATH" Main.App "$DOCKER_ENV_PATH"            
             break
         else
             echo "Falha no login. Por favor, tente novamente."
