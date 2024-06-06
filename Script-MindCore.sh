@@ -126,7 +126,7 @@ if [ -z "$query" ]; then
 else
   echo "Login efetuado com sucesso"
   LOGIN=1
-  CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java"
+  CLASSES_DIR="/home/ubuntu/assistente-maya/docker/aplicacao/target-java/classes"
 
   java --version
 
