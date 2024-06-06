@@ -99,7 +99,7 @@ sleep 2
 
 sudo docker-compose up -d
 
-docker start bd-mindcore > /dev/null
+sudo docker start bd-mindcore > /dev/null
 
 LOGIN=0
 DOCKER_ENV_PATH="/home/ubuntu/assistente-maya/docker/aplicacao/docker.env"
