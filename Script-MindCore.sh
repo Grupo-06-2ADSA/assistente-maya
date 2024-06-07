@@ -106,9 +106,10 @@ executar_consulta() {
     local email="$1"
     local senha="$2"
 
-    local query_result
-    query_result=$(docker exec bd-mindcore bash -c "FK_EMPRESA=\$(MYSQL_PWD=$PASSWORD mysql --batch -u root -D $DATABASE -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"); echo \$FK_EMPRESA")
-    echo "$query_result"
+    local FK_EMPRESA
+    FK_EMPRESA=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"")
+    echo "$FK_EMPRESA"
+    export FK_EMPRESA
 }
 
 # Função para verificar se a consulta retornou resultado
