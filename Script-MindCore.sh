@@ -147,8 +147,11 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
-            docker start javaApp
-            docker exec -e FK_EMPRESA="$query_result" javaApp /bin/sh -c "echo \$FK_EMPRESA"
+            docker rm javaApp
+
+            # Iniciar o contêiner JavaApp com a variável de ambiente definida
+            docker run -d --name javaApp -e FK_EMPRESA="$query_result" -p 8080:8080 helosalgado/atividadeso:app
+
 
             break
         else
