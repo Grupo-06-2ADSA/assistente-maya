@@ -109,7 +109,6 @@ executar_consulta() {
     local FK_EMPRESA
     FK_EMPRESA=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"")
     echo "$FK_EMPRESA"
-    export FK_EMPRESA
 }
 
 # Função para verificar se a consulta retornou resultado
@@ -141,13 +140,16 @@ main(){
       echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite a senha: "
       read -r senha
 
-      sleep 3
+      sleep 2
 
       local query_result
         query_result=$(executar_consulta "$email" "$senha")
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
+
+            docker exec -e FK_EMPRESA="$query_result" javaApp
+
             docker start javaApp
             break
         else
