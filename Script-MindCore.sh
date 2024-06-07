@@ -107,7 +107,7 @@ executar_consulta() {
     local senha="$2"
 
     local FK_EMPRESA
-    FK_EMPRESA=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\"")
+    FK_EMPRESA=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\" | tail -n 1")
     echo "$FK_EMPRESA"
 }
 
@@ -147,8 +147,8 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
-            docker exec -e FK_EMPRESA="$query_result" javaApp /bin/sh -c "echo \$FK_EMPRESA"
             docker start javaApp
+            docker exec -e FK_EMPRESA="$query_result" javaApp /bin/sh -c "echo \$FK_EMPRESA"
 
             break
         else
