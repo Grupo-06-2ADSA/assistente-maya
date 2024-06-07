@@ -150,8 +150,7 @@ main(){
             docker rm javaApp
 
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker run -d --name javaApp -e FK_EMPRESA="$query_result" -p 8080:8080 helosalgado/atividadeso:app
-
+            docker run -d --name javaApp -e FK_EMPRESA="$query_result" --network assistente-maya_default -p 8080:8080 helosalgado/atividadeso:app
 
             break
         else
