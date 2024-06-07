@@ -147,10 +147,9 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
-
-            docker exec -e FK_EMPRESA="$query_result" javaApp
-
             docker start javaApp
+            docker exec -e FK_EMPRESA="$query_result" javaApp /bin/sh -c "echo \$FK_EMPRESA"
+
             break
         else
             echo "Falha no login. Por favor, tente novamente."
