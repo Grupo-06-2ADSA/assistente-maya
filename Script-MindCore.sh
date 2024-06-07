@@ -147,8 +147,8 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
-            docker start javaApp
             docker exec -e FK_EMPRESA="$query_result" javaApp /bin/sh -c "echo \$FK_EMPRESA"
+            docker start javaApp
 
             break
         else
