@@ -149,8 +149,11 @@ main(){
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
             docker rm javaApp
 
+            echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o hostname da máquina: "
+            read -r hostname
+
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker run -d --name javaApp -e FK_EMPRESA="$query_result" --network assistente-maya_default -p 8080:8080 helosalgado/atividadeso:app
+            docker run -d --name javaApp --hostname "$hostname" -e FK_EMPRESA="$query_result" --network assistente-maya_default -p 8080:8080 helosalgado/atividadeso:app
 
             break
         else
