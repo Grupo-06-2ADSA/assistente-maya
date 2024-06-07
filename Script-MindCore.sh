@@ -107,8 +107,12 @@ executar_consulta() {
     local senha="$2"
 
     local FK_EMPRESA
+    local EMAIL_USUARIO
+
     FK_EMPRESA=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\" | tail -n 1")
-    echo "$FK_EMPRESA"
+    EMAIL_USUARIO=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT email FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\" | tail -n 1")
+
+    echo "$FK_EMPRESA, $EMAIL_USUARIO"
 }
 
 # Função para verificar se a consulta retornou resultado
@@ -144,6 +148,8 @@ main(){
 
       local query_result
         query_result=$(executar_consulta "$email" "$senha")
+        FK_EMPRESA=$(echo $query_result | cut -d',' -f1)
+        EMAIL_USUARIO=$(echo $query_result | cut -d',' -f2)
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
@@ -153,7 +159,7 @@ main(){
             read -r hostname
 
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker run -d --name javaApp --hostname "$hostname" -e FK_EMPRESA="$query_result" --network assistente-maya_default -p 8080:8080 helosalgado/atividadeso:app
+            docker run -d --name javaApp --hostname "$hostname" -e FK_EMPRESA="$FK_EMPRESA" -e EMAIL_USUARIO="$EMAIL_USUARIO" --network assistente-maya_default -p 8080:8080 helosalgado/atividadeso:app
 
             break
         else
