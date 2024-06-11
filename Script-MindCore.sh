@@ -85,6 +85,10 @@ services:
       - "8080:8080"
     depends_on:
       - bd
+    environment:
+      FK_EMPRESA: ${FK_EMPRESA}
+      EMAIL_USUARIO: ${EMAIL_USUARIO}
+    hostname: ${hostname}
 
 volumes:
   mysql_data:
@@ -96,10 +100,8 @@ sleep 2
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Iniciando aplicação..."
 sleep 2
 
-docker-compose up -d
-docker stop javaApp
+docker-compose up -d bd-mindcore
 
-sudo docker start bd-mindcore > /dev/null
 
 # Função para executar consulta no banco de dados
 executar_consulta() {
@@ -153,13 +155,12 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
-            docker rm javaApp
 
             echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o hostname da máquina: "
             read -r hostname
 
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker run -d --name javaApp --hostname "$hostname" -e FK_EMPRESA="$FK_EMPRESA" -e EMAIL_USUARIO="$EMAIL_USUARIO" --network assistente-maya_default -p 8080:8080 helosalgado/atividadeso:app
+            docker compose up -d javaApp
 
             break
         else
