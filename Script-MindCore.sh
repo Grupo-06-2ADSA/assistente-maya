@@ -159,6 +159,9 @@ main(){
             echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o hostname da máquina: "
             read -r hostname
 
+            export FK_EMPRESA
+            export EMAIL_USUARIO
+
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
             docker compose up -d javaApp
 
