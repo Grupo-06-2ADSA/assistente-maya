@@ -124,17 +124,17 @@ executar_consulta() {
 }
 
 instalar_sqlcmd() {
-     # Import the public repository GPG keys:
-    curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - &>/dev/null
+    # Import the public repository GPG keys:
+    curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 
     # Register the Microsoft Ubuntu repository:
-    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list &>/dev/null
+    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
 
     # Update the list of products:
-    sudo apt-get update &>/dev/null
+    sudo apt-get update
 
     # Install the SQLCMD utility:
-    sudo apt-get install mssql-tools unixodbc-dev -y &>/dev/null
+    sudo apt-get install mssql-tools unixodbc-dev -y
 
     # Add SQLCMD to PATH for convenience:
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
@@ -155,8 +155,7 @@ verificar_resultado() {
 }
 
 main(){
-   # Verifica se o sqlcmd está instalado, se não, instala
-  if ! command -v /opt/mssql-tools/bin/sqlcmd &> /dev/null; then
+  if ! command -v sqlcmd &> /dev/null; then
       instalar_sqlcmd
   fi
 
@@ -183,13 +182,13 @@ main(){
         EMAIL_USUARIO=$(echo $query_result | cut -d',' -f2)
 
         if verificar_resultado "$query_result"; then
-            java --version > /dev/null || sudo apt install openjdk-17-jre -y &>/dev/null
+            java --version > /dev/null || sudo apt install openjdk-17-jre -y
 
             export FK_EMPRESA
             export EMAIL_USUARIO
 
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker compose up -d &>/dev/null
+            docker compose up -d java_app
 
             break
         else
