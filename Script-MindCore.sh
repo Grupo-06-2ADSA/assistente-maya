@@ -117,6 +117,27 @@ executar_consulta() {
     local FK_EMPRESA
     local EMAIL_USUARIO
 
+    sqlcmd --version
+
+    if [ $? != 0]
+      then
+      # Import the public repository GPG keys:
+      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+
+      # Register the Microsoft Ubuntu repository:
+      curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+
+      # Update the list of products:
+      sudo apt-get update
+
+      # Install the SQLCMD utility:
+      sudo apt-get install mssql-tools unixodbc-dev -y
+
+      # Add SQLCMD to PATH for convenience:
+      echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+      source ~/.bashrc
+    fi
+
     FK_EMPRESA=$(sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
     EMAIL_USUARIO=$(sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT email FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
 
