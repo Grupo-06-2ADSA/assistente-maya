@@ -106,9 +106,6 @@ sleep 2
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Iniciando aplicação..."
 sleep 2
 
-docker-compose up -d bd
-
-
 # Função para executar consulta no banco de dados
 executar_consulta() {
     local email="$1"
@@ -138,7 +135,6 @@ instalar_sqlcmd() {
 
     # Add SQLCMD to PATH for convenience:
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-    source ~/.bashrc
 }
 
 # Função para verificar se a consulta retornou resultado
@@ -155,7 +151,7 @@ verificar_resultado() {
 }
 
 main(){
-  if ! command -v sqlcmd &> /dev/null; then
+  if ! command -v /opt/mssql-tools/bin/sqlcmd &> /dev/null; then
       instalar_sqlcmd
   fi
 
@@ -188,7 +184,7 @@ main(){
             export EMAIL_USUARIO
 
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker compose up -d java_app
+            docker compose up -d
 
             break
         else

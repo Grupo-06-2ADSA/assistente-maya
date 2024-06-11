@@ -1,0 +1,461 @@
+[33mcommit 8c830701a3df14280a6c5635364400977b0d6162[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:50:55 2024 -0300
+
+    Deixando comandos dev null
+
+[33mcommit bbc53a5b929660cef4c60680841d2f3fe4ab3f53[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:42:50 2024 -0300
+
+    Mudança na instalação do sqlcmd v2
+
+[33mcommit 6a2a6ecc51e03a7e093229c09ee6c1ec72adbd5d[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:38:15 2024 -0300
+
+    Mudança na instalação do sqlcmd
+
+[33mcommit e94d0e9cd511fc65a5c14689d98084176772f60c[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:32:30 2024 -0300
+
+    Instalação do sqlcmd v2
+
+[33mcommit a6b4932007d96af6636f3ba75cc9ae9cf7d679de[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:30:29 2024 -0300
+
+    Instalação do sqlcmd
+
+[33mcommit 7377d91b9ed42eb091a2bc197a69c8871570e1ad[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:21:21 2024 -0300
+
+    Mudança da consulta no banco para sql server
+
+[33mcommit d43a7882e6cb2d838825ce4bdcb7783682d46600[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:12:05 2024 -0300
+
+    Variável de ambiente no compose v4
+
+[33mcommit 061c2ddec12890dc5990cce63915b03914eef9a4[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:10:18 2024 -0300
+
+    Variável de ambiente no compose v3
+
+[33mcommit 3815e54c127477e492779745caba8d6fcf20bd5f[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:07:38 2024 -0300
+
+    Variável de ambiente no compose v2
+
+[33mcommit b86e3c4ed20c062a4535fc6666b037f018d51dcd[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Jun 10 23:01:00 2024 -0300
+
+    Variável de ambiente no compose
+
+[33mcommit 6d231137506064367f97c3e603abe690203e4771[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 17:22:17 2024 -0300
+
+    Adição do email na variável de ambiente
+
+[33mcommit 546a2bda54bfd951ef0cb54758767cd945df7f8b[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 13:32:28 2024 -0300
+
+    Mudança do hostname
+
+[33mcommit 6b811bae25f7c293063fb8eeba17a45398a5554c[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 09:53:49 2024 -0300
+
+    Adição da variável de ambiente no java v6
+
+[33mcommit aaa7f578809a6d61d5fb5a90b3f18bf69feae707[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 09:47:59 2024 -0300
+
+    Adição da variável de ambiente no java v5
+
+[33mcommit a094f63996dfdee6c2f177ff37f1d0bee9227f9a[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 09:44:13 2024 -0300
+
+    Adição da variável de ambiente no java v4
+
+[33mcommit ce1e98fe225b9d822b4d5b0386d4de56c6a7a03c[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 09:39:33 2024 -0300
+
+    Adição da variável de ambiente no java v3
+
+[33mcommit 2aa07f63dda79c63fd494ac3f1b2b5a66e5e8bc4[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 09:32:08 2024 -0300
+
+    Adição da variável de ambiente no java v2
+
+[33mcommit 97297311c445194526d76b182d6a642af3ee237b[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Jun 7 09:25:54 2024 -0300
+
+    Adição da variável de ambiente no java
+
+[33mcommit 5f588e155a0070aaf1df66c3120dbad979e8d63b[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 21:18:36 2024 -0300
+
+    Alteração da variável de ambiente do banco v4
+
+[33mcommit bbecbce59f17d4f562018aa76ec96900f69fd3af[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 21:11:07 2024 -0300
+
+    Alteração da variável de ambiente do banco v3
+
+[33mcommit 435018c66b8cd9f368295a679b866d561fd53ae3[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 21:05:15 2024 -0300
+
+    Alteração da variável de ambiente do banco v2
+
+[33mcommit 56ea049ad6acd7f2676427c867a4b2b0d1de1130[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 20:58:17 2024 -0300
+
+    Alteração da variável de ambiente do banco
+
+[33mcommit cb8c8789c8f0b62007b3065b658364b9ae073802[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 20:56:26 2024 -0300
+
+    Alteração da variável de ambiente do banco
+
+[33mcommit 44385c8906d117ff645bdaed8133c79fbd2343c3[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 20:36:06 2024 -0300
+
+    Alteração da variável de ambiente v6
+
+[33mcommit 6ba3cc273a68e15db1a0732a1a94fd2665984f08[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 20:25:47 2024 -0300
+
+    Alteração da variável de ambiente v5
+
+[33mcommit f9aa6b526775226ae9b1e98cf8afd193c5aa3f14[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 20:19:48 2024 -0300
+
+    Alteração da variável de ambiente v4
+
+[33mcommit 2f80fd61d4d0fc402158ba254986457b076f2b29[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 20:14:56 2024 -0300
+
+    Alteração da variável de ambiente v3
+
+[33mcommit 0ece07ba1a5c8cc80e5d1712b01d65d96374d466[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 19:57:02 2024 -0300
+
+    Alteração da variável de ambiente v2
+
+[33mcommit 792a56a680e82d569afa9ef7d8abeb7c31d8fb47[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 19:46:48 2024 -0300
+
+    Alteração da variável de ambiente
+
+[33mcommit 2b71652674e3bd17ebebd94e6cff72c525a4045c[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 18:04:25 2024 -0300
+
+    Modificação na inicialização do java v6
+
+[33mcommit 08155d1dae1ab4d762bc37855de1f59174254921[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 18:00:54 2024 -0300
+
+    Modificação na inicialização do java v5
+
+[33mcommit 9eff546047811c32501fea2017e25ee41dc18a03[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 17:57:12 2024 -0300
+
+    Modificação na inicialização do java v4
+
+[33mcommit 1b009967eb81e7d96a0ca3c91b1b29903b083479[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 17:52:15 2024 -0300
+
+    Modificação na inicialização do java v3
+
+[33mcommit f189f110c695531e6c236b7883620094359fb2a7[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 17:44:29 2024 -0300
+
+    Modificação na inicialização do java v2
+
+[33mcommit 961154430fe74b1ed76d0db48d0f899e797cec49[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 17:14:32 2024 -0300
+
+    Modificação na inicialização do java
+
+[33mcommit b3ae6d2b3bbf56d45046a1a526370494b1da7b79[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 17:04:14 2024 -0300
+
+    Modificação do caminho
+
+[33mcommit b9c5d31ee1b59d300523351dec2721a6a6e07029[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 16:51:17 2024 -0300
+
+    Modificação para txt
+
+[33mcommit 607fa6d586bb4001b0f03ea93516ae2c4318f6fa[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 14:36:06 2024 -0300
+
+    Modificação na lógica do select
+
+[33mcommit 846b3e58187e504bbaaafe2118bf2c53e67b1317[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 13:15:43 2024 -0300
+
+    Modificação na lógica de login
+
+[33mcommit c36e04108ca61966741772962e645a625e3b2d86[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 12:53:54 2024 -0300
+
+    Adição do sudo no comando docker
+
+[33mcommit 955db65733c4bd2d680724d165193c7cb91a452f[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 12:52:56 2024 -0300
+
+    Modificação no caminho da classe v2
+
+[33mcommit e1612151ed43e06e0a7d62e8a9dca2d2cae0cb78[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 12:34:20 2024 -0300
+
+    Modificação no caminho da classe
+
+[33mcommit 376acecc19568799fc61c34911d00ebfbc2bb35c[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 11:52:36 2024 -0300
+
+    Modificação no login v2
+
+[33mcommit e0a19d8f198184c8de8a5e04abb8401657741c91[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 11:26:36 2024 -0300
+
+    Modificação no login v2
+
+[33mcommit 99a7816e287477e578d9c0db065574f4cec21c0a[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Thu Jun 6 10:28:26 2024 -0300
+
+    Modificação no login
+
+[33mcommit e062baa300119b25fd92fda63a201305e0e9bc32[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 20:36:07 2024 -0300
+
+    assistente final
+
+[33mcommit 9421e9a5357b5367925ef507dcf91c0c0e1fb64d[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 20:13:24 2024 -0300
+
+    Assistente-v6
+
+[33mcommit 04ae8ecf51876bc19b9bfcc9241a7f8ec796b67b[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 19:45:53 2024 -0300
+
+    teste-sh
+
+[33mcommit 7381afb518ed142cc1c97784ac36fa28597fda5c[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 18:14:25 2024 -0300
+
+    assistente-v3
+
+[33mcommit 5a46bb7ccf2e845ee037565b30182b9ec96fd043[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 18:12:10 2024 -0300
+
+    assistente-v3
+
+[33mcommit 2dbaca0b0739e1676bcd09669346147fa808473f[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 17:54:11 2024 -0300
+
+    assistente-v3
+
+[33mcommit 2b31221f4d164af5ad46ebc37e720e4d80b1da1f[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Jun 5 17:24:45 2024 -0300
+
+    Assistente-v2
+
+[33mcommit 11a3a4df546751787f8716d5a0f7f4ed9cc5f819[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Fri May 31 18:55:30 2024 -0300
+
+    Assistente-v2
+
+[33mcommit 0dbf37d23d4cd98d443b8e411f07cec30ef8005a[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Fri May 31 18:30:45 2024 -0300
+
+    docker-v1
+
+[33mcommit a34c8ec84aec655a090f9a44375b02c476484497[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Tue Apr 30 17:12:16 2024 -0300
+
+    Jar com banco
+
+[33mcommit 53fc6f367380b934e862be1b7222a7338b379409[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Tue Apr 30 17:03:59 2024 -0300
+
+    Banco de dados
+
+[33mcommit 7cba6c2883ae19d6ac81fdf6ca99bb652eaf45d7[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Tue Apr 30 16:57:49 2024 -0300
+
+    Jar individual
+
+[33mcommit 2d0e3fa20db53d192373586be8f2c9691fa72e6b[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Mon Apr 29 10:10:54 2024 -0300
+
+    Remoção de 'fi' não necessário
+
+[33mcommit 74e77384a19a0885ff4207b09efae4f3ad2ed207[m
+Author: Heloisa Caires Salgado <142421594+HeloSalgado@users.noreply.github.com>
+Date:   Mon Apr 29 09:47:42 2024 -0300
+
+    Update README.md
+
+[33mcommit 68366377c33c1d99deee9eebf961744e2925d00d[m
+Author: Heloisa Caires Salgado <142421594+HeloSalgado@users.noreply.github.com>
+Date:   Sun Apr 28 23:58:40 2024 -0300
+
+    Update README.md
+
+[33mcommit 81aaee2848836338506b64b3ce3c81e29c942472[m
+Author: Heloisa Caires Salgado <142421594+HeloSalgado@users.noreply.github.com>
+Date:   Sun Apr 28 23:57:12 2024 -0300
+
+    Create README.md
+
+[33mcommit 8fafe92bd846324bdefd6c3d422c9a5de41ccbce[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Fri Apr 26 23:19:51 2024 -0300
+
+    Adição do id da janela
+
+[33mcommit 853ff4398d74bf0e2d8b7acf0432ab2c5a921070[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Fri Apr 26 17:29:08 2024 -0300
+
+    Janelas
+
+[33mcommit db362ff8966f21a0cf69ea1330fa55ef0a7a6eb8[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Thu Apr 25 21:18:59 2024 -0300
+
+    Testes finais .JAR
+
+[33mcommit 699cb9db47dad5cc5734775e1ee09a8576903dd1[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Thu Apr 25 17:28:15 2024 -0300
+
+    tirando decisão do usuario
+
+[33mcommit 4f0c3adb7ab717c1c1b8d53dd1ce9085414fb659[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 20:07:05 2024 -0300
+
+    organizando FI
+
+[33mcommit 1aaf5378512ac4f07a5a2aa4bce69bce1fcf4de4[m
+Author: HeloSalgado <heloisa.salgado@sptech.school>
+Date:   Wed Apr 24 19:54:55 2024 -0300
+
+    jar sem o banco
+
+[33mcommit d547ec0e27ddca93f99de6e170040e0929c49e1f[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 19:30:14 2024 -0300
+
+    Arrumando o sh para ficar mais bonito
+
+[33mcommit 42653ef113455269cd5255ca972625e2a9241aca[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 19:24:46 2024 -0300
+
+    finalizando
+
+[33mcommit 0976314a94b3f6d3a373fdf67c42983d15395e25[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:28:17 2024 -0300
+
+    Finalizando sh e jar v8
+
+[33mcommit cb88bab578eb8dbbcf5d8ef7c31e3831a80271fa[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:27:06 2024 -0300
+
+    Finalizando sh e jar v7
+
+[33mcommit 4e1b7220e7f6e2870de096f3202ca5d1cb5eeada[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:21:57 2024 -0300
+
+    Finalizando sh e jar v6
+
+[33mcommit 3901f9c701e06dcd7e3d44b26c4a7c383d3260c7[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:09:33 2024 -0300
+
+    Finalizando sh e jar v5
+
+[33mcommit 15afc4367ac41b1bd106bb1e7a7bd84a3d272219[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:07:57 2024 -0300
+
+    Finalizando sh e jar v4
+
+[33mcommit 7dabe1e2a7c52a76cc71576cdf3cd557932bc6a5[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:05:39 2024 -0300
+
+    Finalizando sh e jar v3
+
+[33mcommit 3adc98bb3691e10cb58837719f22cc9006c63567[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 18:02:57 2024 -0300
+
+    Finalizando sh e jar v2
+
+[33mcommit b9b41d196494fddc69efd6daea05a0fb5f2ea477[m
+Author: KevinSampaio <kevin.sampaio@sptech.school>
+Date:   Wed Apr 24 17:58:39 2024 -0300
+
+    Finalizando sh e jar
