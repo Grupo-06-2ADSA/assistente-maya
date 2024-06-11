@@ -119,7 +119,7 @@ executar_consulta() {
 
     sqlcmd --version
 
-    if [ $? != 0]
+    if [ $? != 0 ]
       then
       # Import the public repository GPG keys:
       curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
