@@ -50,4 +50,4 @@ if __name__ == "__main__":
 EOF
 
 # Executar o script Python
-python3 load_test.py
+
