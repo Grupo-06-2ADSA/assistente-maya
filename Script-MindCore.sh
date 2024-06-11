@@ -103,7 +103,7 @@ sleep 2
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Iniciando aplicação..."
 sleep 2
 
-docker-compose up -d bd-mindcore
+docker-compose up -d bd
 
 
 # Função para executar consulta no banco de dados
@@ -163,7 +163,7 @@ main(){
             export EMAIL_USUARIO
 
             # Iniciar o contêiner JavaApp com a variável de ambiente definida
-            docker compose up -d javaApp
+            docker compose up -d java_app
 
             break
         else
