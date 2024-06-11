@@ -64,6 +64,9 @@ else
         sleep 2
 fi
 
+echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o hostname da máquina: "
+read -r hostname
+
 # Cria o arquivo docker-compose.yml
 cat <<EOL > docker-compose.yml
 version: '3.3'
@@ -155,9 +158,6 @@ main(){
 
         if verificar_resultado "$query_result"; then
             java --version > /dev/null || sudo apt install openjdk-17-jre -y
-
-            echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10) Digite o hostname da máquina: "
-            read -r hostname
 
             export FK_EMPRESA
             export EMAIL_USUARIO
