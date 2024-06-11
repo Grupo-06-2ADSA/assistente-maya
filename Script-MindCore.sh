@@ -117,8 +117,8 @@ executar_consulta() {
     local FK_EMPRESA
     local EMAIL_USUARIO
 
-    FK_EMPRESA=$(sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
-    EMAIL_USUARIO=$(sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT email FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
+    FK_EMPRESA=$(/opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
+    EMAIL_USUARIO=$(/opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT email FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
 
     echo "$FK_EMPRESA, $EMAIL_USUARIO"
 }
