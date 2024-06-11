@@ -1,5 +1,8 @@
-readonly PASSWORD=mindcore123grupo6
-readonly DATABASE=MindCore
+readonly SQL_SERVER_HOST="3.225.222.139"
+readonly SQL_SERVER_PORT="1433"
+readonly SQL_SERVER_USER="sa"
+readonly SQL_SERVER_PASSWORD="mindcore123"
+readonly SQL_SERVER_DATABASE="MindCore"
 
 echo "$(tput setaf 5)[Assistente Maya]: $(tput sgr0) $(tput setaf 10)Olá, eu sou a Maya, sua assistente virtual e vou te ajudar a iniciar nosso aplicativo!!"
 sleep 2
@@ -114,8 +117,8 @@ executar_consulta() {
     local FK_EMPRESA
     local EMAIL_USUARIO
 
-    FK_EMPRESA=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\" | tail -n 1")
-    EMAIL_USUARIO=$(docker exec bd-mindcore bash -c "MYSQL_PWD=\"$PASSWORD\" mysql --batch -u root -D \"$DATABASE\" -e \"SELECT email FROM Funcionario WHERE email = '$email' AND senha = '$senha' LIMIT 1;\" | tail -n 1")
+    FK_EMPRESA=$(sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT fkEmpresa FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
+    EMAIL_USUARIO=$(sqlcmd -S $SQL_SERVER_HOST,$SQL_SERVER_PORT -U $SQL_SERVER_USER -P $SQL_SERVER_PASSWORD -d $SQL_SERVER_DATABASE -h -1 -Q "SET NOCOUNT ON; SELECT email FROM Funcionario WHERE email = '$email' AND senha = '$senha';" | tail -n 1)
 
     echo "$FK_EMPRESA, $EMAIL_USUARIO"
 }
